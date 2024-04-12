@@ -1,5 +1,5 @@
 ## Aufgabe 2
-Die Datei [email.txt](./email.txt) wird als Schlüssel genutz für folge Aufgaben. Der kryptograifsche Fingerabdruck mit den MD5 Verfahren kann mit dem folgenden Kommando erzeugt und in die Datei [md5_email.txt](./md5_email.txt) gespeichert werden:
+Die Datei [email.txt](./email.txt) wird als Schlüssel genutz für die Folgeaufgaben. Der kryptografische Fingerabdruck mit den MD5 Verfahren kann mit dem folgenden Kommando erzeugt und in die Datei [md5_email.txt](./md5_email.txt) gespeichert werden:
 
 ```bash
 openssl dgst -md5 email.txt > md5_email.txt
@@ -12,13 +12,13 @@ openssl dgst -sha3-256 email.txt > sha3-256_email.tx
 ```
 
 ## Aufgabe 3
-Mit dem folgendem Kommando wird die Datei [email.txt](./email.txt) mittels des AES-256 Verfahren verschlüsselt. Als Schlüssel wird die zu verschlüsselnde Datei benutzt.
+Mit dem folgenden Kommando wird die Datei [email.txt](./email.txt) mittels des AES-256 Verfahren verschlüsselt. Als Schlüssel wird die [email.txt](./email.txt) Datei genutzt.
 
 ```bash
 openssl enc -aes-256-cbc -in email.txt -out aes-256-cbc_email.txt -pass file:email.txt
 ```
 
-Die [aes-256-cbs_email.txt](./aes-256-cbc_email.txt) Datei kann mithilfe des folgenden Kommandso wieder entschlüsselt werden:
+Die [aes-256-cbs_email.txt](./aes-256-cbc_email.txt) Datei kann mithilfe des folgenden Kommandos entschlüsselt werden:
 
 ```bash
 openssl enc -d -aes-256-cbc -in aes-256-cbc_email.txt -out decr.txt -pass file:email.txt 
@@ -34,7 +34,7 @@ openssl enc -d -aes-256-cbc -in aes-256-cbc_email.txt -out decr.txt -pass file:e
 | Linux, MacOS, Win | Botan               | SHA AES RSA TLS |
 
 ## Aufgabe 5
-Der folgenden Kommando generiert einen [Private Key](./keys/private_key.pem), welche den [Public Key](./keys/public_key.pem) ebenfalls beinhaltet.
+Der folgende Kommando generiert einen [Private Key](./keys/private_key.pem), welche den [Public Key](./keys/public_key.pem) ebenfalls beinhaltet.
 ```bash
 openssl genrsa -out keypair.pem 1024
 ```
@@ -44,7 +44,7 @@ Der [Public Key](./keys/public_key.pem) muss vom [Private Key](./keys/private_ke
 openssl rsa -in private_key.pem -pubout -out public_key.pem
 ```
 
-Das gerade erstellte Schlüssel Paar kann mit den folgenden zwei Kommandos genutzt werden um die Datei [email.txt](./email.txt) zu verschlüsseln in die Datei [public_key_enc_email.txt](./private_key_enc_email.txt) und zu entschlüsseln in die Datei dec_email.txt
+Das gerade erstellte Schlüssel Paar kann mit den folgenden zwei Kommandos genutzt werden um die [email.txt](./email.txt) Datei zu verschlüsseln in die Datei [public_key_enc_email.txt](./private_key_enc_email.txt) und zu entschlüsseln in die Datei dec_email.txt
 ```bash
 openssl pkeyutl -encrypt -pubin -inkey  keys/public_key.pem -in email.txt -out public_key_enc_email.txt
 ```
