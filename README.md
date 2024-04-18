@@ -8,7 +8,7 @@ openssl dgst -md5 email.txt > md5_email.txt
 Der kryptograifsche Fingerabdruck mit den SHA3-256 Verfahren kann mit dem folgenden Kommando erzeugt und in die Datei [sha3-256_email.txt](./sha3-256_email.txt) gespeichert werden:
 
 ```bash
-openssl dgst -sha3-256 email.txt > sha3-256_email.tx
+openssl dgst -sha3-256 email.txt > sha3-256_email.txt
 ```
 
 ## Aufgabe 3
